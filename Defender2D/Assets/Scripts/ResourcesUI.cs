@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class ResourcesUI : MonoBehaviour
-{
+public class ResourcesUI : MonoBehaviour {
     [SerializeField] private Transform resourceTemplate;
 
     private Dictionary<ResourceTypeSO, Transform> resourceTypeTransformDictionary;
