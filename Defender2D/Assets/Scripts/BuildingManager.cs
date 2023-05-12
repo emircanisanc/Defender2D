@@ -2,11 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System;
 
 public class BuildingManager : MonoBehaviour {
 
     public static BuildingManager Instance { get; private set; }
-    private Camera mainCam;
+
+    public event EventHandler<OnActiveBuildingTypeChangedEventArgs> OnActiveBuildingTypeChanged;
+
+    public class OnActiveBuildingTypeChangedEventArgs : EventArgs {
+        public BuildingTypeSO activeBuildingType;
+    }
+
     private BuildingTypeListSO buildingTypeList;
     private BuildingTypeSO activeBuildingType;
 
@@ -15,27 +22,20 @@ public class BuildingManager : MonoBehaviour {
 
         buildingTypeList = Resources.Load<BuildingTypeListSO>(typeof(BuildingTypeListSO).Name);
     }
-
-    void Start() {
-        mainCam = Camera.main;
-    }
     
     void Update() {
         if(Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject()) {
             if(activeBuildingType != null) {
-                Instantiate(activeBuildingType.prefab, GetMouseWorldPosition(), Quaternion.identity);
+                Instantiate(activeBuildingType.prefab, UtilsClass.GetMouseWorldPosition(), Quaternion.identity);
             }
         }
     }
 
-    private Vector3 GetMouseWorldPosition() {
-        Vector3 mouseWorldPosition = mainCam.ScreenToWorldPoint(Input.mousePosition);
-        mouseWorldPosition.z = 0f;
-        return mouseWorldPosition;
-    }
-
     public void SetActiveBuildingType(BuildingTypeSO buildingType) {
         activeBuildingType = buildingType;
+
+        OnActiveBuildingTypeChanged?.Invoke(this,
+         new OnActiveBuildingTypeChangedEventArgs { activeBuildingType = activeBuildingType } );
     }
 
     public BuildingTypeSO GetActiveBuildingType() {

@@ -30,7 +30,6 @@ public class BuildingTypeSelectUI : MonoBehaviour {
 
         arrowBtn.GetComponent<Button>().onClick.AddListener(() => {
             BuildingManager.Instance.SetActiveBuildingType(null);
-            UpdateActiveBuildingTypeButton();
             });
 
         index++;
@@ -46,7 +45,6 @@ public class BuildingTypeSelectUI : MonoBehaviour {
 
             btnTransform.GetComponent<Button>().onClick.AddListener(() => {
                 BuildingManager.Instance.SetActiveBuildingType(buildingType);
-                UpdateActiveBuildingTypeButton();
              });
 
              btnTransformDictionary[buildingType] = btnTransform;
@@ -55,18 +53,21 @@ public class BuildingTypeSelectUI : MonoBehaviour {
         }
     }
 
-    void Update() {
-        //UpdateActiveBuildingTypeButton();
+    void Start() {
+        BuildingManager.Instance.OnActiveBuildingTypeChanged += BuildingManager_OnActiveBuildingTypeChanged;
     }
 
-    private void UpdateActiveBuildingTypeButton() {
+    private void BuildingManager_OnActiveBuildingTypeChanged(object sender, BuildingManager.OnActiveBuildingTypeChangedEventArgs e)  {
+        UpdateActiveBuildingTypeButton(e.activeBuildingType);
+    }
+
+    private void UpdateActiveBuildingTypeButton(BuildingTypeSO activeBuildingType) {
         arrowBtn.Find("selected").gameObject.SetActive(false);
         foreach (BuildingTypeSO buildingType in btnTransformDictionary.Keys) {
             Transform btnTransform = btnTransformDictionary[buildingType];
             btnTransform.Find("selected").gameObject.SetActive(false);
         }
 
-        BuildingTypeSO activeBuildingType = BuildingManager.Instance.GetActiveBuildingType();
         if(activeBuildingType == null) {
             arrowBtn.Find("selected").gameObject.SetActive(true);
         } else {
