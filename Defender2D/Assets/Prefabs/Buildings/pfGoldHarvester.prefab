@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1638545072684172018}
   - component: {fileID: -320240378463262329}
   m_Layer: 0
-  m_Name: pfWoodHarvester
+  m_Name: pfGoldHarvester
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e2ba1f9c9b74dd4d9c3d8118d122bfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingType: {fileID: 11400000, guid: 29a7266b1afc41c449ec4a1b51cec1a8, type: 2}
+  buildingType: {fileID: 11400000, guid: a75ebdfea7c42cd44ae7b1788b793550, type: 2}
 --- !u!1 &2269695611437311810
 GameObject:
   m_ObjectHideFlags: 0
@@ -69,6 +69,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2269695611437311837}
   - component: {fileID: 2269695611437311836}
+  - component: {fileID: 6468850429471910266}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -132,7 +133,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 793ca27a5a3378149aaa12abe85933f4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8ead931dd91bff8489e75de9c414f17f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -143,3 +144,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6468850429471910266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2269695611437311810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 058a7d1542ef2f0498cd6b6a4512e008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runOnce: 1
+  positionOffsetY: 0
