@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameString: Stone Harvester
   prefab: {fileID: 2269695611374720419, guid: d6c1f7f68188ce84d9b63530335210dc, type: 3}
+  hasResourceGeneratorData: 1
   resourceGeneratorData:
     timerMax: 1
     resourceType: {fileID: 11400000, guid: 309f91e870edcd94492b3f497d5d9f64, type: 2}

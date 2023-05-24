@@ -23,8 +23,13 @@ public class Enemy : MonoBehaviour {
     void Start() {
         rb2d = GetComponent<Rigidbody2D>();
         targetTransform = BuildingManager.Instance.GetHQBuilding().transform;
+        GetComponent<HealthSystem>().OnDied += HealthSystem_OnDied;
 
         lookForTargetTimer = Random.Range(0f, lookForTargetTimerMax);
+    }
+
+    private void HealthSystem_OnDied(object sender, System.EventArgs e) {
+        Destroy(gameObject);
     }
 
     void Update() {

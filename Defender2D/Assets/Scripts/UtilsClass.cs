@@ -19,4 +19,10 @@ public static class UtilsClass {
             Random.Range(-1f, 1f)
         ).normalized;
     }
+
+    public static float GetAngleFromVector(Vector3 vector) {
+        float radians = Mathf.Atan2(vector.y, vector.x);
+        float degrees = radians * Mathf.Rad2Deg;
+        return degrees;
+    }
 }
