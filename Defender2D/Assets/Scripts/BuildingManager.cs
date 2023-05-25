@@ -26,6 +26,14 @@ public class BuildingManager : MonoBehaviour {
         buildingTypeList = Resources.Load<BuildingTypeListSO>(typeof(BuildingTypeListSO).Name);
     }
     
+    void Start() {
+        hqBuilding.GetComponent<HealthSystem>().OnDied += BuildingManager_OnDied;
+    }
+
+    private void BuildingManager_OnDied(object sender, EventArgs e) {
+        GameOverUI.Instance.Show();
+    }
+
     void Update() {
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject()) {
             if (activeBuildingType != null) {

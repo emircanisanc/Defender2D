@@ -5,6 +5,9 @@ using System;
 
 public class EnemyWaveManager : MonoBehaviour {
     
+
+    public static EnemyWaveManager Instance { get; private set; }
+
     public event EventHandler OnWaveNumberChanged;
 
     private enum State {
@@ -20,6 +23,11 @@ public class EnemyWaveManager : MonoBehaviour {
     private float nextEnemySpawnTimer;
     private int remainingEnemySpawnAmount;
     Vector3 spawnPosition;
+
+    void Awake() {
+        Instance = this;
+    }
+
     void Start() {
         state = State.WaitingToSpawnNextWave;
         SetSpawnPosition();
