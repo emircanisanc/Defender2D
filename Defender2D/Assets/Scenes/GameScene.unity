@@ -760,6 +760,7 @@ GameObject:
   m_Component:
   - component: {fileID: 152637919}
   - component: {fileID: 152637918}
+  - component: {fileID: 152637920}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -821,6 +822,23 @@ Transform:
   m_Father: {fileID: 1755566042}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &152637920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152637917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2fba25a5cd15594e8f050a11e386c80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ConfineMode: 0
+  m_BoundingVolume: {fileID: 0}
+  m_BoundingShape2D: {fileID: 816198494}
+  m_ConfineScreenEdges: 1
+  m_Damping: 0
 --- !u!1001 &158465545
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5285,6 +5303,67 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundManager: {fileID: 1176669188}
   musicManager: {fileID: 1927567496}
+--- !u!1 &816198492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 816198493}
+  - component: {fileID: 816198494}
+  m_Layer: 2
+  m_Name: CameraBounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &816198493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816198492}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &816198494
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816198492}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 108.21175, y: 81.08182}
+      - {x: -112.564804, y: 79.08158}
+      - {x: -108.174644, y: -82.55551}
+      - {x: 104.44789, y: -73.947845}
 --- !u!1 &831319412
 GameObject:
   m_ObjectHideFlags: 0
