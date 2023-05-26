@@ -39,12 +39,17 @@ public class OptionsUI : MonoBehaviour {
             Time.timeScale = 1f;
             GameSceneManager.Load(GameSceneManager.Scene.MainMenuScene);
         });
+        transform.Find("edgeScrollingToggle").GetComponent<Toggle>().onValueChanged.AddListener((bool set) => {
+            CameraHandler.Instance.SetEdgeScrolling(set);
+        });
+
     }
 
     void Start() {
         UpdateSoundVolumeText();
-
         gameObject.SetActive(false);
+
+        transform.Find("edgeScrollingToggle").GetComponent<Toggle>().SetIsOnWithoutNotify(CameraHandler.Instance.GetEdgeScrolling());
     }
 
     private void UpdateSoundVolumeText() {
