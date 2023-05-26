@@ -24,8 +24,14 @@ public class BuildingManager : MonoBehaviour {
         Instance = this;
 
         buildingTypeList = Resources.Load<BuildingTypeListSO>(typeof(BuildingTypeListSO).Name);
+
+        FindObjectOfType<OptionsUI>().OnPauseToggled += OnGamePauseToggled;
     }
-    
+
+    private void OnGamePauseToggled(object sender, EventArgs e) {
+        enabled = !enabled;
+    }
+
     void Start() {
         hqBuilding.GetComponent<HealthSystem>().OnDied += HQ_OnDied;
     }
