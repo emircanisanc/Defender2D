@@ -38,12 +38,14 @@ public class Building : MonoBehaviour {
     
     private void HealthSystem_OnDamaged(object sender, System.EventArgs e) {
         SoundManager.Instance.PlaySound(SoundManager.Sound.BuildingDamaged);
+        CinemachineShake.Instance.ShakeCamera(7f, 0.15f);
         ShowBuildingRepairBtn();
     }
 
     private void HealthSystem_OnDied(object sender, System.EventArgs e) {
         SoundManager.Instance.PlaySound(SoundManager.Sound.BuildingDestroyed);
         Instantiate(Resources.Load<Transform>("pfBuildingDestroyedParticles"), transform.position, Quaternion.identity);
+        CinemachineShake.Instance.ShakeCamera(10f, 0.2f);
         Destroy(gameObject);
     }
 
