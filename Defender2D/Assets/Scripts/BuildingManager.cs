@@ -23,7 +23,7 @@ public class BuildingManager : MonoBehaviour {
     void Awake() {
         Instance = this;
 
-        buildingTypeList = Resources.Load<BuildingTypeListSO>(typeof(BuildingTypeListSO).Name);
+        buildingTypeList = GameAssets.Instance.buildingTypeList;
 
         FindObjectOfType<OptionsUI>().OnPauseToggled += OnGamePauseToggled;
     }

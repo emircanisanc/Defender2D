@@ -11,7 +11,7 @@ public class ResourcesUI : MonoBehaviour {
     private ResourceTypeListSO resourceTypeList;
 
     void Awake() {
-        resourceTypeList = Resources.Load<ResourceTypeListSO>(typeof(ResourceTypeListSO).Name);
+        resourceTypeList = GameAssets.Instance.resourceTypeList;
 
         resourceTypeTransformDictionary = new Dictionary<ResourceTypeSO, Transform>();
 

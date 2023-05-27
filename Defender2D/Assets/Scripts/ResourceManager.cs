@@ -16,7 +16,7 @@ public class ResourceManager : MonoBehaviour {
 
         resourceAmountDictionary = new Dictionary<ResourceTypeSO, int>();
         
-        ResourceTypeListSO resourceTypeList = Resources.Load<ResourceTypeListSO>(typeof(ResourceTypeListSO).Name);
+        ResourceTypeListSO resourceTypeList = GameAssets.Instance.resourceTypeList;
 
         foreach (ResourceTypeSO resourceType in resourceTypeList.list) {
             resourceAmountDictionary[resourceType] = 0;
@@ -24,13 +24,6 @@ public class ResourceManager : MonoBehaviour {
 
         foreach (ResourceAmount resourceAmount in startingResourceAmountList) {
             AddResource(resourceAmount.resourceType, resourceAmount.amount);
-        }
-    }
-
-    void Update() {
-        if(Input.GetKeyDown(KeyCode.T)) {
-            ResourceTypeListSO resourceTypeList = Resources.Load<ResourceTypeListSO>(typeof(ResourceTypeListSO).Name);
-            AddResource(resourceTypeList.list[0], 2);
         }
     }
 

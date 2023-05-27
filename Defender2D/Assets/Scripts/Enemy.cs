@@ -5,8 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour {
 
     public static Enemy Create(Vector3 position) {
-        Transform pfEnemy = Resources.Load<Transform>("pfEnemy");
-        Transform enemyTransform = Instantiate(pfEnemy, position, Quaternion.identity);
+        Transform enemyTransform = Instantiate(GameAssets.Instance.pfEnemy, position, Quaternion.identity);
 
         Enemy enemy = enemyTransform.GetComponent<Enemy>();
         return enemy;
@@ -45,7 +44,7 @@ public class Enemy : MonoBehaviour {
     private void KillSelf() {
         SoundManager.Instance.PlaySound(SoundManager.Sound.EnemyDie);
         CinemachineShake.Instance.ShakeCamera(5f, 0.15f);
-        Instantiate(Resources.Load<Transform>("pfEnemyDieParticles"), transform.position, Quaternion.identity);
+        Instantiate(GameAssets.Instance.pfEnemyDieParticles, transform.position, Quaternion.identity);
         ChromaticAberrationEffect.Instance.SetWeight(0.4f);
         Destroy(gameObject);
     }
