@@ -12,6 +12,8 @@ public class CameraHandler : MonoBehaviour {
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float zoomAmount = 2f;
     [SerializeField] private float zoomSpeed = 5f;
+    [SerializeField] private float minX;
+    [SerializeField] private float minY;
 
     private float orthographicSize;
     private float targetOrthographicSize;
@@ -53,8 +55,12 @@ public class CameraHandler : MonoBehaviour {
         }
 
         Vector3 moveDir = new Vector3(x, y).normalized;
+        Vector3 targetPos = transform.position + moveDir * moveSpeed * Time.deltaTime;
 
-        transform.position += moveDir * moveSpeed * Time.deltaTime;
+        targetPos.x = Mathf.Clamp(targetPos.x, minX, -minX);
+        targetPos.y = Mathf.Clamp(targetPos.y, minY, -minY);
+
+        transform.position = targetPos;
     }
 
     private void HandleZoom() {

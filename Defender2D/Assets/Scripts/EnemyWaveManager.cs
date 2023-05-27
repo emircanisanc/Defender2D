@@ -53,7 +53,7 @@ public class EnemyWaveManager : MonoBehaviour {
                         if (remainingEnemySpawnAmount == 0) {
                             state = State.WaitingToSpawnNextWave;
                             SetSpawnPosition();
-                            nextWaveSpawnTimer = 10f;
+                            nextWaveSpawnTimer = 15f;
                         }   
                     }
                 }
